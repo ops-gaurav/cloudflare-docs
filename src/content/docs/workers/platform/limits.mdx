@@ -274,6 +274,10 @@ Note that larger Worker bundles can impact the start-up time of the Worker, as t
 
 A Worker must be able to be parsed and execute its global scope (top-level code outside of any handlers) within 400 ms. Worker size can impact startup because there is more code to parse and evaluate. Avoiding expensive code in the global scope can keep startup efficient as well.
 
+You can measure your Worker's startup time by deploying it to Cloudflare using [Wrangler](/workers/wrangler/). When you run `npx wrangler@latest deploy`, Wrangler will output the startup time of your Worker in the command-line output, using the [`startup_time_ms` field](/api/operations/worker-script-upload-worker-module) returned by the Cloudflare API.
+
+When you deploy your Worker to Cloudflare using Wrangler, Wrangler returns the startup time
+
 <Render file="limits_increase" />
 
 ***
